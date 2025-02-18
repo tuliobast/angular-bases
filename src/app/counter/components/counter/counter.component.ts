@@ -4,25 +4,22 @@ import { Component } from '@angular/core';
   standalone: false,
   selector: 'app-counter',
   template: `
-    <p>Counter {{counter}}</p>
-    <button (click)="increaseBy()">+1</button>
-    <button (click)="reset()">Resert</button>
-    <button (click)="decreaseBy()">-1</button>
-  ` 
-})
+    <h3>Counter: {{ counter }}</h3>
 
-export class CounterComponent {
+    <button (click)="increaseBy(+1)">+1</button>
+    <button (click)="resetCounter()">Reset</button>
+    <button (click)="increaseBy(-1)">-1</button>
+
+  `
+})
+export class CounterComponent  {
   public counter: number = 10;
 
-  increaseBy(): void {
-    this.counter+=1;
+  increaseBy( value: number ):void {
+    this.counter += value;
   }
 
-  decreaseBy(): void {
-    this.counter-=1;
-  }   
-
-  reset(): void {
+  resetCounter() {
     this.counter = 10;
   }
 }
